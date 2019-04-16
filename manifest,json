@@ -1,0 +1,12 @@
+{
+ "package": "Communication",
+ "language": "python3",
+ "author": "UNH_Farmbot",
+ "description": "Troubleshooting",
+ "version": "1.0.0",
+ "min_os_version_major": 3,
+ "url": "https://raw.githubusercontent.com/UNH-Farmbot/SPAD/master/manifest.json",
+ "zip": "https://github.com/UNH-Farmbot/SPAD/archive/master.zip",
+ "executable": "python3",
+ "args": ["SPAD-master/Bridge.py"]
+}
