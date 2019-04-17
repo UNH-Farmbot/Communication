@@ -1,8 +1,8 @@
 {
- "package": "Communication",
+ "package": "UNH-FarmBot",
  "language": "python3",
  "author": "UNH_Farmbot",
- "description": "Troubleshooting",
+ "description": "Perform Image Processing of Plants Phenotypes",
  "version": "1.0.0",
  "min_os_version_major": 3,
  "url": "https://raw.githubusercontent.com/UNH-Farmbot/Communication/master/manifest3.json",
