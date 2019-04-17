@@ -29,7 +29,7 @@
 #------------------------------------------------------------------------"""
 
 
-
+import json
 import time
 import serial
 from time import sleep
@@ -74,3 +74,9 @@ while True:
     except Exception as e:
         print(str(e))
         pass
+
+    if __name__ == '__main__':
+        log("Started Program", "success")
+     #   install_and_import('serial')
+        log("Ending Program", "success")
+       # initiate()
