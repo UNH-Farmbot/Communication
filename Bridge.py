@@ -56,14 +56,14 @@ def log(message, message_type):
         requests.post(farmware_api_url() + 'celery_script',
                       data=payload, headers=headers)
 
-def printheader():
-    print("")
-    print("")
-    print('%s%s'%(" " * 6,
-                  "    Leaf Area       Bloom Size   Bloom Color   Bloom Count"))
-    print('%s%s'%(" " * 6,
-                  "      (cm^2)          (in)                      (#/plant)"))
-    print('%s%s'%(" " * 6, "-" * 60))
+#def printheader():
+#    print("")
+#    print("")
+#    print('%s%s'%(" " * 6,
+#                  "    Leaf Area       Bloom Size   Bloom Color   Bloom Count"))
+#    print('%s%s'%(" " * 6,
+#                  "      (cm^2)          (in)                      (#/plant)"))
+#    print('%s%s'%(" " * 6, "-" * 60))
 
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
