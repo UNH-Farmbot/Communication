@@ -47,12 +47,6 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message': message,
                 'message_type': message_type}}))
 
-if __name__ == '__main__':
-        log("Started Program", "success")
-     #   install_and_import('serial')
-        log("Ending Program", "success")
-       # initiate()
-  
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
