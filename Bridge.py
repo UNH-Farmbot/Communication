@@ -51,8 +51,8 @@ def log(message, message_type):
              "args": {"message": log_message, "message_type": message_type}})
         requests.post(farmware_api_url() + 'celery_script',
                       data=payload, headers=headers)
-if __name__ == '__main__':
-        log("Started Program", "success")
+#if __name__ == '__main__':
+#        log("Started Program", "success")
       
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
