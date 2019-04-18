@@ -35,11 +35,6 @@ import serial
 import requests
 from time import sleep
 
-#def farmware_api_url():
-#    major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
-#    base_url = os.environ['FARMWARE_URL']
-#    return base_url + 'api/v1/' if major_version > 5 else base_url
-
 def log(message, message_type):
     'Send a message to the log.'
     try:
@@ -56,7 +51,13 @@ def log(message, message_type):
              "args": {"message": log_message, "message_type": message_type}})
         requests.post(farmware_api_url() + 'celery_script',
                       data=payload, headers=headers)
-
+if __name__ == '__main__':
+        log("Started Program", "success")
+     #   install_and_import('serial')
+        log("Ending Program", "success")
+       # initiate()
+        
+        
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
@@ -67,6 +68,7 @@ except serial.serialutil.SerialException:
     
 port.write(str.encode("Go"))
 sleep(0.1)
+
 
 while True:
     try:
