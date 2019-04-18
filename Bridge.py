@@ -32,6 +32,7 @@
 import json
 import time
 import serial
+import requests
 from time import sleep
 
 def farmware_api_url():
