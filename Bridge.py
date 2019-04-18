@@ -56,15 +56,6 @@ def log(message, message_type):
         requests.post(farmware_api_url() + 'celery_script',
                       data=payload, headers=headers)
 
-#def printheader():
-#    print("")
-#    print("")
-#    print('%s%s'%(" " * 6,
-#                  "    Leaf Area       Bloom Size   Bloom Color   Bloom Count"))
-#    print('%s%s'%(" " * 6,
-#                  "      (cm^2)          (in)                      (#/plant)"))
-#    print('%s%s'%(" " * 6, "-" * 60))
-
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
@@ -76,8 +67,24 @@ except serial.serialutil.SerialException:
 port.write(str.encode("Go"))
 sleep(0.1)
 
+# log the sending of the command
+def log(message, message_type):
+    'Send a message to the log.'
+    try:
+        os.environ['FARMWARE_URL']
+    except KeyError:
+        print(message)
+    else:
+        log_message = '[UNH-FarmBot] ' + str(message)
+        headers = {
+            'Authorization': 'bearer {}'.format(os.environ['FARMWARE_TOKEN']),
+            'content-type': "application/json"}
+        payload = json.dumps(
+            {"kind": "send_message",
+             "args": {"message": log_message, "message_type": message_type}})
+        requests.post(farmware_api_url() + 'celery_script',
+                      data=payload, headers=headers)
 
-printheader()
 
 
 while True:
@@ -88,15 +95,34 @@ while True:
         my_text += port.read(remaining_bytes)
         my_text = my_text.decode()
         data_output = (my_text.strip())
-        new_file = open("/home/pi/Messi2.txt", "w")
-        new_file.write(data_output)
-        print(data_output)
-        new_file.close
-            
+#        new_file = open("/home/pi/Messi2.txt", "w")
+#        new_file.write(data_output)
+#        print(data_output)
+#        new_file.close
+
+# Send to log the characteristics of plants
+def log(message, message_type):
+    'Send a message to the log.'
+    try:
+        os.environ['FARMWARE_URL']
+    except KeyError:
+        print(message)
+    else:
+        log_message = '[UNH-FarmBot] ' + str(message)
+        headers = {
+            'Authorization': 'bearer {}'.format(os.environ['FARMWARE_TOKEN']),
+            'content-type': "application/json"}
+        payload = json.dumps(
+            {"kind": "send_message",
+             "args": {"message": log_message, "message_type": message_type}})
+        requests.post(farmware_api_url() + 'celery_script',
+                      data=payload, headers=headers)
+    
     except Exception as e:
         print(str(e))
         pass
 
+    
     if __name__ == '__main__':
         log("Started Program", "success")
      #   install_and_import('serial')
