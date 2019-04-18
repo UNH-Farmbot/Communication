@@ -53,11 +53,7 @@ def log(message, message_type):
                       data=payload, headers=headers)
 if __name__ == '__main__':
         log("Started Program", "success")
-     #   install_and_import('serial')
-        log("Ending Program", "success")
-       # initiate()
-        
-        
+      
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
@@ -87,9 +83,6 @@ while True:
         print(str(e))
         pass
 
-    
     if __name__ == '__main__':
-        log("Started Program", "success")
-     #   install_and_import('serial')
         log("Ending Program", "success")
-       # initiate()
+     
