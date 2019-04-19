@@ -9,4 +9,12 @@
  "zip": "https://github.com/UNH-Farmbot/Communication/archive/master.zip",
  "executable": "python3",
  "args": ["Communication-master/Bridge.py"]
-}
+ "config": [
+    {"name": "x_pos", "label": "X Position", "value": 500 },
+    {"name": "y_pos", "label": "Y Position", "value": 500 },
+    {"name": "diameter", "label": "Circle Diameter", "value": 500 },
+    {"name": "min_dist", "label": "Distance Apart (keep above 50)", "value": 150 },
+    {"name": "size", "label": "Plant Size", "value": 25 },
+    {"name": "slug", "label": "Plant Type", "value": "wheat" }
+  ]
+ }
