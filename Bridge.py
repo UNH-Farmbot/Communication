@@ -58,7 +58,7 @@ except serial.serialutil.SerialException:
     
 port.write(str.encode("Go"))
 sleep(0.1)
-log('Command sent', 'success')
+    log('Command sent', 'success')
 
 while True:
     try:
