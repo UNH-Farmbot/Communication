@@ -68,7 +68,7 @@ while True:
         my_text += port.read(remaining_bytes)
         my_text = my_text.decode()
         data_output = (my_text.strip())
-        #log('Data Received', 'success')
+        log('Data Received', 'success')
          
     except Exception as e:
         print(str(e))
