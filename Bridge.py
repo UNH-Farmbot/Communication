@@ -34,6 +34,9 @@ import time
 import serial
 import requests
 from time import sleep
+from farmware_tools import get_config_value
+
+VALUE = get_config_value('UNH-FarmBot', 'key')
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
