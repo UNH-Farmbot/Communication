@@ -1,16 +1,12 @@
 {
  "package": "UNH-FarmBot",
- "language": "python",
+ "language": "python3",
  "author": "UNH-FarmBot",
  "description": "Perform Image Processing of Plants Phenotypes",
  "version": "0.1.0",
  "min_os_version_major": 6,
  "url": "https://raw.githubusercontent.com/UNH-Farmbot/Communication/master/manifest3.json",
  "zip": "https://github.com/UNH-Farmbot/Communication/archive/master.zip",
- "executable": "python",
+ "executable": "python3",
  "args": ["Communication-master/Bridge.py"]
- "config": [
-  {"name": "pointname", "label": "Filter by plant name", "value": "*"},
-  {"name": "filter_meta", "label": "Filter by meta data (see documentation)", "value": "None"},
-  ]
 }
