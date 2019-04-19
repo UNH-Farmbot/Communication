@@ -35,6 +35,7 @@ import serial
 import requests
 from time import sleep
 
+
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
     requests.post(
@@ -51,13 +52,13 @@ try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
     print
-    print("Serial Error: no connection to /dev/ttyS0 at 115200")
+    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
     print
     sys.exit()
     
 port.write(str.encode("Go"))
 sleep(0.1)
-
+log('Command sent', 'success')
 
 while True:
     try:
@@ -67,11 +68,8 @@ while True:
         my_text += port.read(remaining_bytes)
         my_text = my_text.decode()
         data_output = (my_text.strip())
-#        new_file = open("/home/pi/Messi2.txt", "w")
-#        new_file.write(data_output)
-#        print(data_output)
-#        new_file.close
-    
+        log('Data Received', 'success')
+         
     except Exception as e:
         print(str(e))
         pass
