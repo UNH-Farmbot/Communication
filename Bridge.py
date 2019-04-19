@@ -52,13 +52,13 @@ try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
     print
-    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+    #log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
     print
     sys.exit()
     
 port.write(str.encode("Go"))
 sleep(0.1)
-log('Command sent', 'success')
+#log('Command sent', 'success')
 
 while True:
     try:
