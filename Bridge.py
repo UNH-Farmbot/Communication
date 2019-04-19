@@ -74,12 +74,12 @@ while True:
         print(str(e))
         pass
     
-if __name__ == '__main__':
-    farmware_name = 'UNH-Farmbot'
+#if __name__ == '__main__':
+    #farmware_name = 'UNH-Farmbot'
     # Load inputs from Farmware page widget specified in manifest file
-    x_pos = get_env('x_pos')
-    y_pos = get_env('y_pos')
-    diameter = get_env('diameter')
-    min_dist = get_env('min_dist')
-    size = get_env('size')
-    slug = get_env('slug', str)
+    #x_pos = get_env('x_pos')
+    #y_pos = get_env('y_pos')
+    #diameter = get_env('diameter')
+    #min_dist = get_env('min_dist')
+    #size = get_env('size')
+    #slug = get_env('slug', str)
