@@ -1,5 +1,5 @@
 {
- "package": "UNH-Farmbot",
+ "package": "UNHFarmBot",
  "language": "python3",
  "author": "UNH-FarmBot",
  "description": "Perform Image Processing of Plants Phenotypes",
