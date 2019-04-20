@@ -74,7 +74,7 @@ while True:
         pass
     
 if __name__ == '__main__':
-    farmware_name = 'UNH-FarmBot'
+    farmware_name = 'UNH-Farmbot'
     # Load inputs from Farmware page widget specified in manifest file
    
-VALUE = get_config_value('UNH-FarmBot', 'key')
+VALUE = get_config_value('UNH-Farmbot', 'key')
