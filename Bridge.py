@@ -36,8 +36,6 @@ import requests
 from time import sleep
 from farmware_tools import get_config_value
 
-VALUE = get_config_value('UNH-FarmBot', 'key')
-
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
     requests.post(
@@ -76,7 +74,7 @@ while True:
         pass
     
 if __name__ == '__main__':
-    farmware_name = 'UNH-Farmbot'
+    farmware_name = 'UNH-FarmBot'
     # Load inputs from Farmware page widget specified in manifest file
-    
    
+VALUE = get_config_value('UNH-FarmBot', 'key')
