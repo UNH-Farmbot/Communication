@@ -1,7 +1,7 @@
 {
  "package": "UNHFarmBot",
  "language": "python3",
- "author": "UNH-FarmBot",
+ "author": "UNHFarmBot",
  "description": "Perform Image Processing of Plants Phenotypes",
  "version": "0.1.0",
  "min_os_version_major": 6,
