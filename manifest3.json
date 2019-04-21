@@ -2,7 +2,7 @@
  "package": "UNH-FarmBot",
  "language": "python3",
  "author": "UNHFarmbot",
- "description": "Take a photo with a specific camera (USB only).",
+ "description": "Perform Image Processing of Plant Phenotypes",
  "version": "0.1.0",
  "min_os_version_major": 6,
  "url": "https://raw.githubusercontent.com/FarmBot-Labs/multi-camera-take-photo/master/manifest.json",
