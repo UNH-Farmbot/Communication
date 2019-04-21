@@ -11,8 +11,11 @@
  "args": ["Communication-master/Bridge.py"],
  "config": [
    {"name": "leaf_area", "label": "Leaf Area", "value": 0 },
+  
    {"name": "bloom_count", "label": "Bloom Count", "value": 0 },
+  
    {"name": "bloom_color", "label": "Bloom Color", "value": 0 },
+  
    {"name": "bloom_size", "label": "Bloom Size", "value": 0 }
  ]
 }
