@@ -10,6 +10,6 @@
  "executable": "python3",
  "args": ["Communication-master/Bridge.py"],
  "config": [
-   {"name": "camera_port", "label": "Camera port (0, 1, 2, 3, etc.)", "value": 0 }
+   {"name": "camera_port", "label": "Leaf Area", "value": 0 }
  ]
 }
