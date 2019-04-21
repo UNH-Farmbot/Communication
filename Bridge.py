@@ -85,6 +85,6 @@ if __name__ == '__main__':
     # Load inputs from Farmware page widget specified in manifest file
     leaf_area = get_env('leaf_area')
     bloom_count = get_env('bloom_count')
-    bloom_color = get_env('bloom_color')
+    bloom_color = get_env('bloom_color', str)
     bloom_size = get_env('bloom_size')
 
