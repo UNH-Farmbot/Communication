@@ -1,7 +1,7 @@
 {
  "package": "UNH-FarmBot",
  "language": "python3",
- "author": "Farmbot.io",
+ "author": "UNHFarmbot",
  "description": "Take a photo with a specific camera (USB only).",
  "version": "0.1.0",
  "min_os_version_major": 6,
