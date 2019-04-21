@@ -1,5 +1,5 @@
 {
- "package": "Multi-Camera Take Photo",
+ "package": "UNH-FarmBot",
  "language": "python",
  "author": "Farmbot.io",
  "description": "Take a photo with a specific camera (USB only).",
