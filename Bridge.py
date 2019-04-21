@@ -28,7 +28,7 @@
 # same way.
 #------------------------------------------------------------------------"""
 
-
+import os
 import json
 import time
 import serial
@@ -50,6 +50,11 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message': message,
                 'message_type': message_type}}))
 
+  
+def get_env(key, type_=int):
+    'Return the value of the namespaced Farmware input variable.'
+    return type_(os.environ['{}_{}'.format(farmware_name, key)])  
+  
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
@@ -78,5 +83,8 @@ while True:
 if __name__ == '__main__':
     farmware_name = 'UNHFarmBot'
     # Load inputs from Farmware page widget specified in manifest file
-   
+    leaf_area = get_env('leaf_area')
+    bloom_count = get_env('bloom_count')
+    bloom_color = get_env('bloom_color')
+    bloom_size = get_env('bloom_size')
 
