@@ -55,9 +55,9 @@ def log(message, message_type): #'Send a send_message command to post a log to t
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
-    print
+    #print
     log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-    print
+    #print
     sys.exit()
     
 port.write(str.encode("Go"))
@@ -71,7 +71,7 @@ while True:
         my_text += port.read(remaining_bytes)
         my_text = my_text.decode()
         data_output = (my_text.strip())
-        log(data_output, 'success')
+        log('data_output', 'success')
          
     except Exception as e:
         print(str(e))
