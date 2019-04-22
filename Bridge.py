@@ -86,3 +86,4 @@ if __name__ == '__main__':
 #    bloom_size = get_config_value(farmware_name, config_name='bloom_size')
 
 #    device.Bridge(leaf_area, bloom_count, bloom_color, bloom_size)
+    log("Ending Program", "success")
