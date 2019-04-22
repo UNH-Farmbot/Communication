@@ -36,7 +36,8 @@ import requests
 from time import sleep
 from farmware_tools import get_config_value, device
 
-def log(message, message_type): #'Send a send_message command to post a log to the Web App.' 
+def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+ 
     requests.post(
         os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
         headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
