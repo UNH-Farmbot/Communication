@@ -72,12 +72,12 @@ while True:
         print(str(e))
         pass
     
-# Send the data to the FarmBot Web App logs.
-def send_it(s_number):
-	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
-	data = json.dumps({'message': 'SPAD number:' + str(data_output)})
-	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
-	print "sent it!"
+## Send the data to the FarmBot Web App logs.
+#def send_it(s_number):
+#	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
+#	data = json.dumps({'message': 'SPAD number:' + str(data_output)})
+#	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
+#	print "sent it!"
 
 
 def main():
