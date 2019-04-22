@@ -34,14 +34,7 @@ import time
 import serial
 import requests
 from time import sleep
-from farmware_tools import get_config_value
-
-VALUE = get_config_value('UNHFarmBot', 'key')
-
-#def farmware_api_url():
-#    major_version = int(os.getenv('FARMBOT_OS_VERSION', '0.0.0')[0])
-#    base_url = os.environ['FARMWARE_URL']
-#    return base_url + 'api/v1/' if major_version > 5 else base_url
+from farmware_tools import get_config_value, device
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
@@ -88,8 +81,9 @@ while True:
 if __name__ == '__main__':
     farmware_name = 'UNHFarmBot'
     # Load inputs from Farmware page widget specified in manifest file
-    leaf_area = get_env('leaf_area')
-    bloom_count = get_env('bloom_count')
-    bloom_color = get_env('bloom_color', str)
-    bloom_size = get_env('bloom_size')
+    leaf_area = get_config_value(farmware_name, config_name='leaf_area')
+    bloom_count = get_config_value(farmware_name, config_name='bloom_count')
+    bloom_color = get_config_value(farmware_name, config_name='bloom_color', str)
+    bloom_size = get_config_value(farmware_name, config_name='bloom_size')
 
+    device.Bridge(leaf_area, bloom_count, bloom_color, bloom_size)
