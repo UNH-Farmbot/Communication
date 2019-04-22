@@ -65,6 +65,7 @@ while True:
         my_text += port.read(remaining_bytes)
         my_text = my_text.decode()
         data_output = (my_text.strip())
+        
         log('data_output', 'success')
          
     except Exception as e:
@@ -73,4 +74,5 @@ while True:
     
 if __name__ == '__main__':
     farmware_name = 'UNHFarmBot'
+  
     log("Ending Program", "success")
