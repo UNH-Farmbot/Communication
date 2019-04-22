@@ -47,18 +47,11 @@ def log(message, message_type): #'Send a send_message command to post a log to t
             'args': {
                 'message': message,
                 'message_type': message_type}}))
-
-  
-#def get_env(key, type_=int):
-#    'Return the value of the namespaced Farmware input variable.'
-#    return type_(os.environ['{}_{}'.format(farmware_name, key)])  
   
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
-    #print
     log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-    #print
     sys.exit()
     
 port.write(str.encode("Go"))
@@ -80,11 +73,4 @@ while True:
     
 if __name__ == '__main__':
     farmware_name = 'UNHFarmBot'
-#    # Load inputs from Farmware page widget specified in manifest file
-#    leaf_area = get_config_value(farmware_name, config_name='leaf_area')
-#    bloom_count = get_config_value(farmware_name, config_name='bloom_count')
-#    bloom_color = get_config_value(farmware_name, config_name='bloom_color', str)
-#    bloom_size = get_config_value(farmware_name, config_name='bloom_size')
-
-#    device.Bridge(leaf_area, bloom_count, bloom_color, bloom_size)
     log("Ending Program", "success")
