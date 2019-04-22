@@ -36,8 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import get_config_value, device
 
-def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
- 
+def log(message, message_type): #'Send a send_message command to post a log to the Web App.' 
     requests.post(
         os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
         headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
@@ -49,9 +48,9 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message_type': message_type}}))
 
   
-def get_env(key, type_=int):
-    'Return the value of the namespaced Farmware input variable.'
-    return type_(os.environ['{}_{}'.format(farmware_name, key)])  
+#def get_env(key, type_=int):
+#    'Return the value of the namespaced Farmware input variable.'
+#    return type_(os.environ['{}_{}'.format(farmware_name, key)])  
   
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
@@ -72,7 +71,7 @@ while True:
         my_text += port.read(remaining_bytes)
         my_text = my_text.decode()
         data_output = (my_text.strip())
-        log('Data Received', 'success')
+        log(data_output, 'success')
          
     except Exception as e:
         print(str(e))
@@ -80,10 +79,10 @@ while True:
     
 if __name__ == '__main__':
     farmware_name = 'UNHFarmBot'
-    # Load inputs from Farmware page widget specified in manifest file
-    leaf_area = get_config_value(farmware_name, config_name='leaf_area')
-    bloom_count = get_config_value(farmware_name, config_name='bloom_count')
-    bloom_color = get_config_value(farmware_name, config_name='bloom_color', str)
-    bloom_size = get_config_value(farmware_name, config_name='bloom_size')
+#    # Load inputs from Farmware page widget specified in manifest file
+#    leaf_area = get_config_value(farmware_name, config_name='leaf_area')
+#    bloom_count = get_config_value(farmware_name, config_name='bloom_count')
+#    bloom_color = get_config_value(farmware_name, config_name='bloom_color', str)
+#    bloom_size = get_config_value(farmware_name, config_name='bloom_size')
 
-    device.Bridge(leaf_area, bloom_count, bloom_color, bloom_size)
+#    device.Bridge(leaf_area, bloom_count, bloom_color, bloom_size)
