@@ -66,13 +66,25 @@ while True:
         my_text = my_text.decode()
         data_output = (my_text.strip())
         
-        log(data_output, 'success')
+        log('Data received', 'success')
          
     except Exception as e:
         print(str(e))
         pass
     
+# Send the data to the FarmBot Web App logs.
+def send_it(s_number):
+	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
+	data = json.dumps({'message': 'SPAD number:' + str(data_output)})
+	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
+	print "sent it!"
+
+
+def main():
+	get_token()
+	s_number = Run_Routines()
+	send_it(data_output)
+	
 if __name__ == '__main__':
-    farmware_name = 'UNHFarmBot'
-  
-    log("Ending Program", "success")
+	main()
+
