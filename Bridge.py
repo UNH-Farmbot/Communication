@@ -66,7 +66,7 @@ while True:
         my_text = my_text.decode()
         data_output = (my_text.strip())
         
-        log('data_output', 'success')
+        log(data_output, 'success')
          
     except Exception as e:
         print(str(e))
