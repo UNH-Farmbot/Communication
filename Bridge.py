@@ -55,7 +55,7 @@ try:
    port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
    device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-   sys.exit()
+   #sys.exit()
     
 port.write(str.encode("Go"))
 sleep(0.1)
