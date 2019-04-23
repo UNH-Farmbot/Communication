@@ -74,7 +74,7 @@ while True:
         print(str(e))
         pass
 
-device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast'])      
+device.log('Plant Characteristics {{3}}, {{y}}, {{z}}.', 'success', ['toast'])      
    
 if __name__ == '__main__':
     initiate()
