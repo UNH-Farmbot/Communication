@@ -38,19 +38,6 @@ from farmware_tools import device
 
 device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 
-#def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
- 
-#    requests.post(
-#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-#                 'content-type': 'application/json'},
-#        data=json.dumps({
-#            'kind': 'send_message',
-#            'args': {
-#                'message': message,
-#                'message_type': message_type}}))	
-
-
 try:
    port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
@@ -74,6 +61,21 @@ while True:
         print(str(e))
         pass
 
+      
+
+#def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+ 
+#    requests.post(
+#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
+#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
+#                 'content-type': 'application/json'},
+#        data=json.dumps({
+#            'kind': 'send_message' + str(data_output),
+#            'args': {
+#                'message': message,
+#                'message_type': message_type}}))
+      
+      
 device.log('Plant Characteristics {{3}}, {{y}}, {{z}}.', 'success', ['toast'])      
    
 if __name__ == '__main__':
