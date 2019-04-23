@@ -38,7 +38,7 @@ from farmware_tools import device
 
 device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 
-def get_token():
+#def get_token():
 # Inputs:
 #	global EMAIL
 #	EMAIL = input("FarmBot Email: ")
