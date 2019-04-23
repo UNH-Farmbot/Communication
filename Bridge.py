@@ -66,7 +66,9 @@ def Cmd():
 # Receive data through serial  
 def Rcv():
 	while True:
-		try:
+		device.log(message='Plant Charact.:', message_type='success', channels=['toast'])
+#		try:
+			
 #			my_text= port.read() 
 #			time.sleep(0.1)       
 #			remaining_bytes = port.in_waiting 
@@ -74,7 +76,7 @@ def Rcv():
 #			my_text = my_text.decode()
 #			data_output = (my_text.strip())
 #			return(data_output)
-			device.log(message='Plant Charact.:', message_type='success', channels=['toast'])
+		
 
 #		except Exception as e:
 #			print(str(e))
