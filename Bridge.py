@@ -38,19 +38,30 @@ from farmware_tools import device
 
 device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 
-
+def get_token():
+# Inputs:
+	global EMAIL
+	EMAIL = raw_input("FarmBot Email: ")
+	global PASSWORD
+	PASSWORD = raw_input("WebApp Password: ")
+# Get your FarmBot Web App token.
+	headers = {'content-type': 'application/json'}
+	user = {'user': {'email': EMAIL, 'password': PASSWORD}}
+	payload = json.dumps(user)
+	response = requests.post('https://my.farmbot.io/api/tokens',headers=headers, data=payload)
+	global TOKEN
+	TOKEN = response.json()['token']['encoded']
 
 # Send "Go" command to image processing Raspberry Pi
 def Cmd()
-   try:
-      port = serial.Serial('/dev/ttyS0', 115200)
-   except serial.serialutil.SerialException:
-      device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-      sys.exit()
+   	try:
+      		port = serial.Serial('/dev/ttyS0', 115200)
+		port.write(str.encode("Go"))
+   		sleep(0.1)
+   	except serial.serialutil.SerialException:
+      		device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+      		sys.exit()
     
-   port.write(str.encode("Go"))
-   sleep(0.1)
- 
 # Receive data through serial  
 def Rcv(data_output)
       while True:
@@ -76,7 +87,7 @@ def display(data_output):
 def main():
 	get_token()
 	Cmd()
-   data_output = Rcv()
+   	data_output = Rcv()
 	display(data_output)
 	
 if __name__ == '__main__':
