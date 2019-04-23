@@ -64,31 +64,31 @@ def Cmd():
 		sys.exit()
     
 # Receive data through serial  
-def Rcv():
-	while True:
+#def Rcv():
+#	while True:
 #		device.log(message='Plant Charact.:', message_type='success', channels=['toast'])
-		try:
-			my_text= port.read() 
-			time.sleep(0.1)
+#		try:
+#			my_text= port.read() 
+#			time.sleep(0.1)
 			
-			remaining_bytes = port.in_waiting 
-			my_text += port.read(remaining_bytes)
-			my_text = my_text.decode()
-			data_output = (my_text.strip())
-			return(data_output)
-			device.log(message='Plant Charact.:', message_type='success', channels=['toast'])
+#			remaining_bytes = port.in_waiting 
+#			my_text += port.read(remaining_bytes)
+#			my_text = my_text.decode()
+#			data_output = (my_text.strip())
+#			return(data_output)
+			
 
 #		except Exception as e:
 #			print(str(e))
 #			pass
 
 # Send plant characteristics to log    
-#def display(data_output):
-#	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
-#	data = json.dumps({'message': 'Plant Characteristics:' + str(data_output)})
-#	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
-#	print "Data sent"
-
+def display(100):
+	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
+	data = json.dumps({'message': 'Plant Characteristics:' + str(100)})
+	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
+	print "Data sent"
+	device.log(message='Plant Charact.:', message_type='success', channels=['toast'])		
 
 def main():
 	 
