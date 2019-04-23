@@ -55,12 +55,12 @@ def get_token():
 # Send "Go" command to image processing Raspberry Pi
 def Cmd()
    	try:
-      		port = serial.Serial('/dev/ttyS0', 115200)
-		port.write(str.encode("Go"))
-   		sleep(0.1)
+      	    port = serial.Serial('/dev/ttyS0', 115200)
+	    port.write(str.encode("Go"))
+   	    sleep(0.1)
    	except serial.serialutil.SerialException:
-      		device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-      		sys.exit()
+      	    device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+      	    sys.exit()
     
 # Receive data through serial  
 def Rcv(data_output)
