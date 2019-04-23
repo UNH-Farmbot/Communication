@@ -49,12 +49,12 @@ device.log('Plant Characteristiciss {{x}}, {{y}}, {{z}}.', 'success', ['toast'])
 #            'args': {
 #                'message': message,
 #                'message_type': message_type}}))	
-
-try:
-    port = serial.Serial('/dev/ttyS0', 115200)
-except serial.serialutil.SerialException:
-    device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-    sys.exit()
+Def run()
+    try:
+      port = serial.Serial('/dev/ttyS0', 115200)
+    except serial.serialutil.SerialException:
+      device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+      sys.exit()
     
 port.write(str.encode("Go"))
 sleep(0.1)
@@ -75,5 +75,9 @@ while True:
 device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast'])      
    
 if __name__ == '__main__':
-        device.log('Plant Characterist {{x}}, {{y}}, {{z}}.', 'success', ['toast'])
+     app = UNH-Farmbot
+      try:
+        app.run()
+        sys.exit(0)
+        #device.log('Plant Characterist {{x}}, {{y}}, {{z}}.', 'success', ['toast'])
         #device.log("Started Program", "success")
