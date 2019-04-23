@@ -40,22 +40,22 @@ device.log('Plant Characteristiciss {{x}}, {{y}}, {{z}}.', 'success', ['toast'])
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
-    requests.post(
-        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-                 'content-type': 'application/json'},
-        data=json.dumps({
-            'kind': 'send_message',
-            'args': {
-                'message': message,
-                'message_type': message_type}}))	
+#    requests.post(
+#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
+#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
+#                 'content-type': 'application/json'},
+#        data=json.dumps({
+#            'kind': 'send_message',
+#            'args': {
+#                'message': message,
+#                'message_type': message_type}}))	
 
-  while True:
-    try:
-      port = serial.Serial('/dev/ttyS0', 115200)
-    except serial.serialutil.SerialException:
-      device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-      sys.exit()
+
+try:
+   port = serial.Serial('/dev/ttyS0', 115200)
+except serial.serialutil.SerialException:
+   device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+   sys.exit()
     
 port.write(str.encode("Go"))
 sleep(0.1)
