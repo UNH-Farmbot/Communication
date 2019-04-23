@@ -34,8 +34,20 @@ import time
 import serial
 import requests
 from time import sleep
-  
-try:
+
+def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+ 
+    requests.post(
+        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
+        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
+                 'content-type': 'application/json'},
+        data=json.dumps({
+            'kind': 'send_message',
+            'args': {
+                'message': message,
+                'message_type': message_type}}))	
+
+  try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
     log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
@@ -65,21 +77,5 @@ while True:
 #	print "sent it!"
 
 
-#def main():
-#	get_token()
-#	data_output = Run_Routines()
-#	send_it(data_output)
-
-def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
- 
-    requests.post(
-        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-                 'content-type': 'application/json'},
-        data=json.dumps({
-            'kind': 'send_message',
-            'args': {
-                'message': message,
-                'message_type': message_type}}))	
 if __name__ == '__main__':
         log("Started Program", "success")
