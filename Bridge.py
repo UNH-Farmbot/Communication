@@ -38,7 +38,7 @@ from farmware_tools import device
 
 device.log('Plant Characteristiciss {{x}}, {{y}}, {{z}}.', 'success', ['toast'])  
 
-def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+#def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
 #    requests.post(
 #        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
