@@ -47,29 +47,29 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message': message,
                 'message_type': message_type}}))
   
-#try:
-#    port = serial.Serial('/dev/ttyS0', 115200)
-#except serial.serialutil.SerialException:
-#    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-#    sys.exit()
+try:
+    port = serial.Serial('/dev/ttyS0', 115200)
+except serial.serialutil.SerialException:
+    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+    sys.exit()
     
-#port.write(str.encode("Go"))
-#sleep(0.1)
+port.write(str.encode("Go"))
+sleep(0.1)
 
-#while True:
-#    try:
-#        my_text= port.read() 
-#        time.sleep(0.1)       
-#        remaining_bytes = port.in_waiting 
-#        my_text += port.read(remaining_bytes)
-#        my_text = my_text.decode()
-#        data_output = (my_text.strip())
+while True:
+    try:
+        my_text= port.read() 
+        time.sleep(0.1)       
+        remaining_bytes = port.in_waiting 
+        my_text += port.read(remaining_bytes)
+        my_text = my_text.decode()
+        data_output = (my_text.strip())
         
 #        log('Data received', 'success')
          
-#    except Exception as e:
-#        print(str(e))
-#        pass
+    except Exception as e:
+        print(str(e))
+        pass
     
 ## Send the data to the FarmBot Web App logs.
 #def send_it(data_output):
