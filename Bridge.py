@@ -36,7 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-device.log('Plant Characteristics {{ 10 }}, {{ 4 }}, {{ 12 }}, {{ 20 }}.', 'success', ['toast']) 
+device.log('Plant Characteristics {{ 10 }}, {{ K }}, {{ 12 }}, {{ 20 }}.', 'success', ['toast']) 
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
