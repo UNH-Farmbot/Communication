@@ -62,13 +62,14 @@ def Cmd():
 	except serial.serialutil.SerialException:
 		device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
 		sys.exit()
+device.log(message='Plant Charact.:', message_type='success', channels=['toast']
     
 # Receive data through serial  
-def Rcv():
+#def Rcv():
 #	while True:
 		
-		try:
-		device.log(message='Plant Charact.:', message_type='success', channels=['toast']
+#		try:
+#		device.log(message='Plant Charact.:', message_type='success', channels=['toast']
 #			my_text= port.read() 
 #			time.sleep(0.1)
 			
