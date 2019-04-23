@@ -95,7 +95,7 @@ def main():
 #	get_token()
 	Cmd()
 #  	data_output = Rcv()
-#	display(data_output)
+	display(data_output)
 	
 if __name__ == '__main__':
 	main()
