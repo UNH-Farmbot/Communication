@@ -36,7 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast']) 
+ 
 
 #def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
@@ -71,7 +71,9 @@ while True:
     except Exception as e:
         print(str(e))
         pass
-      
+
+device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast'])      
    
 if __name__ == '__main__':
-        device.log("Started Program", "success")
+        device.log('Plant Characterist {{x}}, {{y}}, {{z}}.', 'success', ['toast'])
+        #device.log("Started Program", "success")
