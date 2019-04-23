@@ -34,7 +34,6 @@ import time
 import serial
 import requests
 from time import sleep
-from farmware_tools import get_config_value, device
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
@@ -48,29 +47,29 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message': message,
                 'message_type': message_type}}))
   
-try:
-    port = serial.Serial('/dev/ttyS0', 115200)
-except serial.serialutil.SerialException:
-    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-    sys.exit()
+#try:
+#    port = serial.Serial('/dev/ttyS0', 115200)
+#except serial.serialutil.SerialException:
+#    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+#    sys.exit()
     
-port.write(str.encode("Go"))
-sleep(0.1)
+#port.write(str.encode("Go"))
+#sleep(0.1)
 
-while True:
-    try:
-        my_text= port.read() 
-        time.sleep(0.1)       
-        remaining_bytes = port.in_waiting 
-        my_text += port.read(remaining_bytes)
-        my_text = my_text.decode()
-        data_output = (my_text.strip())
+#while True:
+#    try:
+#        my_text= port.read() 
+#        time.sleep(0.1)       
+#        remaining_bytes = port.in_waiting 
+#        my_text += port.read(remaining_bytes)
+#        my_text = my_text.decode()
+#        data_output = (my_text.strip())
         
-        log('Data received', 'success')
+#        log('Data received', 'success')
          
-    except Exception as e:
-        print(str(e))
-        pass
+#    except Exception as e:
+#        print(str(e))
+#        pass
     
 ## Send the data to the FarmBot Web App logs.
 #def send_it(data_output):
@@ -80,10 +79,10 @@ while True:
 #	print "sent it!"
 
 
-def main():
-	get_token()
-	data_output = Run_Routines()
-	send_it(data_output)
+#def main():
+#	get_token()
+#	data_output = Run_Routines()
+#	send_it(data_output)
 	
 if __name__ == '__main__':
         log("Started Program", "success")
