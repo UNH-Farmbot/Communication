@@ -57,7 +57,7 @@ def Cmd():
 	try:
 		port = serial.Serial('/dev/ttyS0', 115200)
 		port.write(str.encode("Go"))
-#		sleep(0.1)
+		sleep(0.1)
 		device.log(message='Plant Charact.:', message_type='success', channels=['toast'])	
 	except serial.serialutil.SerialException:
 		device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
