@@ -75,5 +75,5 @@ while True:
 device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast'])      
    
 if __name__ == '__main__':
-     initiate()
-        device.log("Started Program", "success")
+    initiate()
+    device.log("Started Program", "success")
