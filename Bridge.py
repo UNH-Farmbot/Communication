@@ -87,7 +87,7 @@ def display(100):
 	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
 	data = json.dumps({'message': 'Plant Characteristics:' + str(100)})
 	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
-	print "Data sent"
+	#print "Data sent"
 	device.log(message='Plant Charact.:', message_type='success', channels=['toast'])		
 
 def main():
