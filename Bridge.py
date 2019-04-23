@@ -40,17 +40,17 @@ device.log(message='Plant Charact.:', message_type='success', channels=['toast']
 
 def get_token():
 # Inputs:
-	global EMAIL
-	EMAIL = input("FarmBot Email: ")
-	global PASSWORD
-	PASSWORD = input("WebApp Password: ")
+#	global EMAIL
+#	EMAIL = input("FarmBot Email: ")
+#	global PASSWORD
+#	PASSWORD = input("WebApp Password: ")
 # Get your FarmBot Web App token.
-	headers = {'content-type': 'application/json'}
-	user = {'user': {'email': EMAIL, 'password': PASSWORD}}
-	payload = json.dumps(user)
-	response = requests.post('https://my.farmbot.io/api/tokens',headers=headers, data=payload)
-	global TOKEN
-	TOKEN = response.json()['token']['encoded']
+#	headers = {'content-type': 'application/json'}
+#	user = {'user': {'email': EMAIL, 'password': PASSWORD}}
+#	payload = json.dumps(user)
+#	response = requests.post('https://my.farmbot.io/api/tokens',headers=headers, data=payload)
+#	global TOKEN
+#	TOKEN = response.json()['token']['encoded']
 
 # Send "Go" command to image processing Raspberry Pi
 def Cmd()
