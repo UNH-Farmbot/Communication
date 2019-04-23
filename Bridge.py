@@ -36,7 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-#device.log('Bot is at position {{ x }}, {{ y }}, {{ z }}.', 'success', ['toast'])
+device.log('Bot is at position {{ x }}, {{ y }}, {{ z }}.', 'success', ['toast'])
 
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
