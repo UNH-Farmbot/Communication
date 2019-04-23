@@ -36,24 +36,24 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-device.log('Plant Characteristics {{ 10 }}, {{ K }}, {{ 12 }}, {{ 20 }}.', 'success', ['toast']) 
+device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast']) 
 
-def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+#def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
-    requests.post(
-        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-                 'content-type': 'application/json'},
-        data=json.dumps({
-            'kind': 'send_message',
-            'args': {
-                'message': message,
-                'message_type': message_type}}))	
+#    requests.post(
+#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
+#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
+#                 'content-type': 'application/json'},
+#        data=json.dumps({
+#            'kind': 'send_message',
+#            'args': {
+#                'message': message,
+#                'message_type': message_type}}))	
 
 try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
-    log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+    device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
     sys.exit()
     
 port.write(str.encode("Go"))
@@ -74,4 +74,4 @@ while True:
       
    
 if __name__ == '__main__':
-        log("Started Program", "success")
+        device.log("Started Program", "success")
