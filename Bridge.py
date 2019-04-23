@@ -53,45 +53,45 @@ def get_token():
 #	TOKEN = response.json()['token']['encoded']
 
 # Send "Go" command to image processing Raspberry Pi
-def Cmd()
-   	try:
-      	    port = serial.Serial('/dev/ttyS0', 115200)
-	    port.write(str.encode("Go"))
-   	    sleep(0.1)
-   	except serial.serialutil.SerialException:
-      	    device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-      	    sys.exit()
+#def Cmd()
+#   	try:
+#      	    port = serial.Serial('/dev/ttyS0', 115200)
+#	    port.write(str.encode("Go"))
+#   	    sleep(0.1)
+#   	except serial.serialutil.SerialException:
+#      	    device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+#      	    sys.exit()
     
 # Receive data through serial  
-def Rcv()
-	while True:
-		try:
-			my_text= port.read() 
-			time.sleep(0.1)       
-			remaining_bytes = port.in_waiting 
-			my_text += port.read(remaining_bytes)
-			my_text = my_text.decode()
-			data_output = (my_text.strip())
-			return(data_output)
-		except Exception as e:
-			print(str(e))
-			pass
+#def Rcv()
+#	while True:
+#		try:
+#			my_text= port.read() 
+#			time.sleep(0.1)       
+#			remaining_bytes = port.in_waiting 
+#			my_text += port.read(remaining_bytes)
+#			my_text = my_text.decode()
+#			data_output = (my_text.strip())
+#			return(data_output)
+#		except Exception as e:
+#			print(str(e))
+#			pass
 
 # Send plant characteristics to log    
-def display(data_output):
-	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
-	data = json.dumps({'message': 'Plant Characteristics:' + str(data_output)})
-	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
-	print "Data sent"
+#def display(data_output):
+#	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
+#	data = json.dumps({'message': 'Plant Characteristics:' + str(data_output)})
+#	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
+#	print "Data sent"
 
 
-def main():
-	get_token()
-	Cmd()
-   	data_output = Rcv()
-	display(data_output)
+#def main():
+#	get_token()
+#	Cmd()
+#  	data_output = Rcv()
+#	display(data_output)
 	
-if __name__ == '__main__':
-	main()
+#if __name__ == '__main__':
+#	main()
       
       
