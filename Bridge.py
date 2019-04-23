@@ -53,8 +53,10 @@ from farmware_tools import device
 #	TOKEN = response.json()['token']['encoded']
 
 # Send "Go" command to image processing Raspberry Pi
-#def Cmd()
-#   	try:
+def Cmd()
+   	try:
+		device.log(message='Plant Charact.:', message_type='success', channels=['toast'])
+		
 #      	    port = serial.Serial('/dev/ttyS0', 115200)
 #	    port.write(str.encode("Go"))
 #   	    sleep(0.1)
@@ -86,9 +88,9 @@ from farmware_tools import device
 
 
 def main():
-	device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
+	 
 #	get_token()
-#	Cmd()
+	Cmd()
 #  	data_output = Rcv()
 #	display(data_output)
 	
