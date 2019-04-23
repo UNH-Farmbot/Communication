@@ -3,7 +3,7 @@
  "language": "python3",
  "author": "UNHFarmbot",
  "description": "Perform Image Processing of Plant Phenotypes",
- "version": "0.1.0",
+ "version": "0.2.0",
  "min_os_version_major": 6,
  "url": "https://raw.githubusercontent.com/UNH-Farmbot/Communication/master/manifest3.json",
  "zip": "https://github.com/UNH-Farmbot/Communication/archive/master.zip",
