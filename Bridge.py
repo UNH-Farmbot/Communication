@@ -36,6 +36,8 @@ import requests
 from time import sleep
 from farmware_tools import device
 
+device.log('Plant Characteristics {{ 10 }}, {{ 4 }}, {{ 12 }}, {{ 20 }}.', 'success', ['toast']) 
+
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
     requests.post(
@@ -70,7 +72,6 @@ while True:
         print(str(e))
         pass
       
-device.log('Plant Characteristics {{ 10 }}, {{ 4 }}, {{ 12 }}, {{ 20 }}.', 'success', ['toast'])    
-
+   
 if __name__ == '__main__':
         log("Started Program", "success")
