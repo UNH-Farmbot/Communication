@@ -38,18 +38,18 @@ from farmware_tools import device
 
 device.log('Plant Characteristiciss {{x}}, {{y}}, {{z}}.', 'success', ['toast'])  
 
-#def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
-#    requests.post(
-#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-#                 'content-type': 'application/json'},
-#        data=json.dumps({
-#            'kind': 'send_message',
-#            'args': {
-#                'message': message,
-#                'message_type': message_type}}))	
-Def run()
+    requests.post(
+        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
+        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
+                 'content-type': 'application/json'},
+        data=json.dumps({
+            'kind': 'send_message',
+            'args': {
+                'message': message,
+                'message_type': message_type}}))	
+
     try:
       port = serial.Serial('/dev/ttyS0', 115200)
     except serial.serialutil.SerialException:
@@ -75,9 +75,5 @@ while True:
 device.log('Plant Characteristics {{x}}, {{y}}, {{z}}.', 'success', ['toast'])      
    
 if __name__ == '__main__':
-     app = UNH-Farmbot
-      try:
-        app.run()
-        sys.exit(0)
-        #device.log('Plant Characterist {{x}}, {{y}}, {{z}}.', 'success', ['toast'])
-        #device.log("Started Program", "success")
+     initiate()
+        device.log("Started Program", "success")
