@@ -36,9 +36,6 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-
-
-
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
  
     requests.post(
