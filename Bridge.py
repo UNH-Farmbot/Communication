@@ -38,46 +38,48 @@ from farmware_tools import device
 
 device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 
-try:
-   port = serial.Serial('/dev/ttyS0', 115200)
-except serial.serialutil.SerialException:
-   device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
-   #sys.exit()
+
+
+# Send "Go" command to image processing Raspberry Pi
+def Cmd()
+   try:
+      port = serial.Serial('/dev/ttyS0', 115200)
+   except serial.serialutil.SerialException:
+      device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
+      sys.exit()
     
-port.write(str.encode("Go"))
-sleep(0.1)
-
-
-while True:
-    try:
-        my_text= port.read() 
-        time.sleep(0.1)       
-        remaining_bytes = port.in_waiting 
-        my_text += port.read(remaining_bytes)
-        my_text = my_text.decode()
-        data_output = (my_text.strip())
-         
-    except Exception as e:
-        print(str(e))
-        pass
-
-      
-
-#def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
+   port.write(str.encode("Go"))
+   sleep(0.1)
  
-#    requests.post(
-#        os.environ['FARMWARE_URL'] + 'api/v1/celery_script',
-#        headers={'Authorization': 'Bearer ' + os.environ['FARMWARE_TOKEN'],
-#                 'content-type': 'application/json'},
-#        data=json.dumps({
-#            'kind': 'send_message' + str(data_output),
-#            'args': {
-#                'message': message,
-#                'message_type': message_type}}))
-      
-      
-device.log('Plant Characteristics {{3}}, {{y}}, {{z}}.', 'success', ['toast'])      
-   
+# Receive data through serial  
+def Rcv(data_output)
+      while True:
+         try:
+           my_text= port.read() 
+           time.sleep(0.1)       
+           remaining_bytes = port.in_waiting 
+           my_text += port.read(remaining_bytes)
+           my_text = my_text.decode()
+           data_output = (my_text.strip())
+         except Exception as e:
+           print(str(e))
+           pass
+
+# Send plant characteristics to log    
+def display(data_output):
+	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
+	data = json.dumps({'message': 'Plant Characteristics:' + str(data_output)})
+	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
+	print "Data sent"
+
+
+def main():
+	get_token()
+	Cmd()
+   data_output = Rcv()
+	display(data_output)
+	
 if __name__ == '__main__':
-    initiate()
-    device.log("Started Program", "success")
+	main()
+      
+      
