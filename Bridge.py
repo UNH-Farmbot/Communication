@@ -36,7 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-#device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
+device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 
 #def get_token():
 # Inputs:
@@ -62,7 +62,7 @@ def Cmd():
 	except serial.serialutil.SerialException:
 		device.log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
 		sys.exit()
-device.log(message='Plant Charact.:', message_type='success', channels=['toast']
+#device.log(message='Plant Charact.:', message_type='success', channels=['toast']
     
 # Receive data through serial  
 #def Rcv():
