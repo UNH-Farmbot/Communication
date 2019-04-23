@@ -36,7 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
+#device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 
 #def get_token():
 # Inputs:
@@ -85,13 +85,14 @@ device.log(message='Plant Charact.:', message_type='success', channels=['toast']
 #	print "Data sent"
 
 
-#def main():
+def main():
+	device.log(message='Plant Charact.:', message_type='success', channels=['toast']) 
 #	get_token()
 #	Cmd()
 #  	data_output = Rcv()
 #	display(data_output)
 	
-#if __name__ == '__main__':
-#	main()
+if __name__ == '__main__':
+	main()
       
       
