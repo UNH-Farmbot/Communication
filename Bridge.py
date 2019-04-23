@@ -36,7 +36,7 @@ import requests
 from time import sleep
 from farmware_tools import device
 
-device.log('Bot is at position {{ x }}, {{ y }}, {{ z }}.', 'success', ['toast'])
+
 
 
 def log(message, message_type): #'Send a send_message command to post a log to the Web App.'
@@ -72,14 +72,8 @@ while True:
     except Exception as e:
         print(str(e))
         pass
-    
-## Send the data to the FarmBot Web App logs.
-#def send_it(data_output):
-#	headers = {'Authorization': 'Bearer ' + TOKEN,'content-type': 'application/json'}
-#	data = json.dumps({'message': 'Plant Characteristics:' + str(data_output)})
-#	response = requests.post('https://my.farmbot.io/api/logs', headers=headers, data=data)
-#	print "sent it!"
-
+      
+device.log('Plant Characteristics {{ 10 }}, {{ 4 }}, {{ 12 }}, {{ 20 }}.', 'success', ['toast'])    
 
 if __name__ == '__main__':
         log("Started Program", "success")
