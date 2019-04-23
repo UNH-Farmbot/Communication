@@ -41,9 +41,9 @@ device.log(message='Plant Charact.:', message_type='success', channels=['toast']
 def get_token():
 # Inputs:
 	global EMAIL
-	EMAIL = raw_input("FarmBot Email: ")
+	EMAIL = input("FarmBot Email: ")
 	global PASSWORD
-	PASSWORD = raw_input("WebApp Password: ")
+	PASSWORD = input("WebApp Password: ")
 # Get your FarmBot Web App token.
 	headers = {'content-type': 'application/json'}
 	user = {'user': {'email': EMAIL, 'password': PASSWORD}}
@@ -63,18 +63,19 @@ def Cmd()
       	    sys.exit()
     
 # Receive data through serial  
-def Rcv(data_output)
-      while True:
-         try:
-           my_text= port.read() 
-           time.sleep(0.1)       
-           remaining_bytes = port.in_waiting 
-           my_text += port.read(remaining_bytes)
-           my_text = my_text.decode()
-           data_output = (my_text.strip())
-         except Exception as e:
-           print(str(e))
-           pass
+def Rcv()
+	while True:
+		try:
+			my_text= port.read() 
+			time.sleep(0.1)       
+			remaining_bytes = port.in_waiting 
+			my_text += port.read(remaining_bytes)
+			my_text = my_text.decode()
+			data_output = (my_text.strip())
+			return(data_output)
+		except Exception as e:
+			print(str(e))
+			pass
 
 # Send plant characteristics to log    
 def display(data_output):
