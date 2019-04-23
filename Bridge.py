@@ -86,5 +86,4 @@ def main():
 	send_it(data_output)
 	
 if __name__ == '__main__':
-	main()
-
+        log("Started Program", "success")
