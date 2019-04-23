@@ -34,7 +34,7 @@ import time
 import serial
 import requests
 from time import sleep
-#from farmware_tools import device
+from farmware_tools import device
 
 #device.log('Bot is at position {{ x }}, {{ y }}, {{ z }}.', 'success', ['toast'])
 
