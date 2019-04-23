@@ -50,6 +50,7 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message': message,
                 'message_type': message_type}}))	
 
+  while True:
     try:
       port = serial.Serial('/dev/ttyS0', 115200)
     except serial.serialutil.SerialException:
@@ -58,6 +59,7 @@ def log(message, message_type): #'Send a send_message command to post a log to t
     
 port.write(str.encode("Go"))
 sleep(0.1)
+
 
 while True:
     try:
