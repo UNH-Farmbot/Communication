@@ -47,7 +47,7 @@ def log(message, message_type): #'Send a send_message command to post a log to t
                 'message': message,
                 'message_type': message_type}}))	
 
-  try:
+try:
     port = serial.Serial('/dev/ttyS0', 115200)
 except serial.serialutil.SerialException:
     log('Serial Error: no connection to /dev/ttyS0 at 115200', 'success')
